@@ -7,7 +7,7 @@ RUN yum update -y && yum install -y java-1.8.0-openjdk-devel which && \
     yum clean all
 
 # Add Logstash itself.
-RUN curl -Lo - https://artifacts.elastic.co/downloads/logstash/logstash-5.4.2.tar.gz | \
+RUN curl -L https://artifacts.elastic.co/downloads/logstash/logstash-5.4.2.tar.gz | \
     tar zxf - -C /usr/share && \
     mv /usr/share/logstash-5.4.2 /usr/share/logstash && \
     chown --recursive logstash:logstash /usr/share/logstash/ && \
