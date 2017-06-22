@@ -19,8 +19,8 @@ ENV PATH=/usr/share/logstash/bin:$PATH
 # Provide a minimal configuration, so that simple invocations will provide
 # a good experience.
 ADD config/logstash.yml config/log4j2.properties /usr/share/logstash/config/
-RUN chown --recursive 1001:0 /usr/share/logstash/config/ /usr/share/logstash/pipeline/ && \
-    chmod --recursive og+rw /usr/share/logstash/config/ /usr/share/logstash/pipeline/
+RUN chown --recursive 1001:0 /usr/share/logstash && \
+    chmod --recursive og+rw /usr/share/logstash
 
 # Ensure Logstash gets a UTF-8 locale by default.
 ENV LANG='en_US.UTF-8' LC_ALL='en_US.UTF-8'
@@ -35,6 +35,7 @@ RUN cd /usr/share/logstash && LOGSTASH_PACK_URL=https://artifacts.elastic.co/dow
     LOGSTASH_PACK_URL=https://artifacts.elastic.co/downloads/logstash-plugins logstash-plugin install logstash-filter-translate
 
 ADD env2yaml/env2yaml /usr/local/bin/
+ADD GeoLite2-City.mmdb /etc/logstash/
 
 EXPOSE 9600 5044
 
