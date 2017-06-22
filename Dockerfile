@@ -1,4 +1,5 @@
-FROM centos:7
+FROM openshift/base-centos7
+
 LABEL maintainer "Elastic Docker Team <docker@elastic.co>"
 
 # Install Java and the "which" command, which is needed by Logstash's shell
