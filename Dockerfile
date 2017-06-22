@@ -10,7 +10,7 @@ RUN yum update -y && yum install -y java-1.8.0-openjdk-devel which && \
 RUN curl -L https://artifacts.elastic.co/downloads/logstash/logstash-5.4.2.tar.gz | \
     tar zxf - -C /usr/share && \
     mv /usr/share/logstash-5.4.2 /usr/share/logstash && \
-    chown --recursive logstash:logstash /usr/share/logstash/ && \
+    chown --recursive 1001:0 /usr/share/logstash/ && \
     ln -s /usr/share/logstash /opt/logstash
 
 ENV ELASTIC_CONTAINER true
