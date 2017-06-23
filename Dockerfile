@@ -24,7 +24,7 @@ RUN chown --recursive 1001:0 /usr/share/logstash && \
     chmod --recursive og+rw /usr/share/logstash
 
 # Ensure Logstash gets a UTF-8 locale by default.
-ENV LANG='en_US.UTF-8' LC_ALL='en_US.UTF-8'
+ENV LANG='en_US.UTF-8'
 
 # Place the startup wrapper script.
 ADD bin/docker-entrypoint /usr/local/bin/
