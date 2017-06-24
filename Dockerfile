@@ -33,7 +33,7 @@ RUN chmod 0755 /usr/local/bin/docker-entrypoint
 USER 1001
 
 RUN cd /usr/share/logstash && LOGSTASH_PACK_URL=https://artifacts.elastic.co/downloads/logstash-plugins logstash-plugin install x-pack && \
-    LOGSTASH_PACK_URL=https://artifacts.elastic.co/downloads/logstash-plugins logstash-plugin install --no--verify logstash-filter-translate
+    LOGSTASH_PACK_URL=https://artifacts.elastic.co/downloads/logstash-plugins logstash-plugin install --no-verify logstash-filter-translate
 
 ADD env2yaml/env2yaml /usr/local/bin/
 ADD GeoLite2-City.mmdb /etc/logstash/
