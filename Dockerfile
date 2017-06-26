@@ -36,7 +36,7 @@ RUN cd /usr/share/logstash && LOGSTASH_PACK_URL=https://artifacts.elastic.co/dow
     LOGSTASH_PACK_URL=https://artifacts.elastic.co/downloads/logstash-plugins logstash-plugin install --no-verify logstash-filter-translate
 
 ADD env2yaml/env2yaml /usr/local/bin/
-ADD GeoLite2-City.mmdb /etc/logstash/
+ADD GeoLite2-City.mmdb /usr/share/logstash
 
 EXPOSE 9600 5044
 
